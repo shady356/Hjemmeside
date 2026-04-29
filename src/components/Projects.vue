@@ -13,7 +13,7 @@ const projects = [
     url: 'https://shady356.github.io/simple-piano/',
   },
   {
-    title: 'PokeView',
+    title: 'PokéView',
     description: 'Utforsk Pokémon-verdenen',
     color: '#F6FBFF',
     foreground: '#02264A',
