@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cp -rf vue-project/. .)",
+      "Bash(rm -rf vue-project)"
+    ]
+  }
+}
