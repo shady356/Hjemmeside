@@ -3,8 +3,8 @@
     "allow": [
       "Bash(cp -rf vue-project/. .)",
       "Bash(rm -rf vue-project)",
-      "Bash(mkdir -p \"c:/Users/henri/Documents/code/Hjemmeside/src/assets\")",
-      "Bash(touch \"c:/Users/henri/Documents/code/Hjemmeside/src/assets/.gitkeep\")",
+      "Bash(mkdir -p \"c:/Users/henri/Documents/code/hjemmeside/src/assets\")",
+      "Bash(touch \"c:/Users/henri/Documents/code/hjemmeside/src/assets/.gitkeep\")",
       "Bash(gh pr *)",
       "Bash(git remote *)"
     ]
