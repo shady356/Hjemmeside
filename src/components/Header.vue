@@ -1,10 +1,10 @@
 <template>
   <header>
-    <a href="#about" class="home-link-name">Henrik Oddløkken</a>
+    <a href="/" class="home-link-name">Henrik Oddløkken</a>
     <nav>
       <ul>
-        <li><a href="#projects">Prosjekter</a></li>
-        <li><a href="#contact">Kontakt</a></li>
+        <li><a href="/#projects">Prosjekter</a></li>
+        <li><a href="/#contact">Kontakt</a></li>
       </ul>
     </nav>
   </header>

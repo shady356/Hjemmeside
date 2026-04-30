@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 import ProjectCard from './ProjectCard.vue'
 import ProjectDialog from './ProjectDialog.vue'
 import abstractPianoArt from '@/assets/abstract_piano_art.svg'
 import pokeview from '@/assets/pokeview.svg'
+
+const router = useRouter()
 
 const projects = [
   {
@@ -16,6 +19,7 @@ const projects = [
     image: abstractPianoArt,
     githubUrl: 'https://github.com/shady356/simple-piano',
     websiteUrl: 'https://shady356.github.io/simple-piano/',
+    to: undefined as string | undefined,
   },
   {
     title: 'PokéView',
@@ -27,6 +31,7 @@ const projects = [
     image: pokeview,
     githubUrl: 'https://github.com/shady356/pokedex',
     websiteUrl: 'https://shady356.github.io/pokedex/',
+    to: undefined as string | undefined,
   },
   {
     title: 'Fantasy Premier League Design',
@@ -36,14 +41,23 @@ const projects = [
     color: '#F3E5FF',
     foreground: '#2B0A47',
     image: pokeview,
-    githubUrl: 'https://github.com/shady356/pokedex',
-    websiteUrl: 'https://shady356.github.io/pokedex/',
+    githubUrl: '',
+    websiteUrl: undefined,
+    to: '/fpl-case',
   },
 ]
 
 type Project = (typeof projects)[number]
 
 const selectedProject = ref<Project | null>(null)
+
+function handleSelect(project: Project) {
+  if (project.to) {
+    router.push(project.to)
+  } else {
+    selectedProject.value = project
+  }
+}
 </script>
 
 <template>
@@ -58,7 +72,7 @@ const selectedProject = ref<Project | null>(null)
         :color="project.color"
         :foreground="project.foreground"
         :image="project.image"
-        @select="selectedProject = project"
+        @select="handleSelect(project)"
       />
     </div>
   </section>

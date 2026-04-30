@@ -6,7 +6,9 @@
       "Bash(mkdir -p \"c:/Users/henri/Documents/code/hjemmeside/src/assets\")",
       "Bash(touch \"c:/Users/henri/Documents/code/hjemmeside/src/assets/.gitkeep\")",
       "Bash(gh pr *)",
-      "Bash(git remote *)"
+      "Bash(git remote *)",
+      "Bash(npm run *)",
+      "Bash(npx vue-tsc *)"
     ]
   }
 }
