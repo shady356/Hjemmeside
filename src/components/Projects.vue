@@ -1,17 +1,15 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useRouter } from 'vue-router'
 import ProjectCard from './ProjectCard.vue'
 import ProjectDialog from './ProjectDialog.vue'
 import abstractPianoArt from '@/assets/abstract_piano_art.svg'
 import pokeview from '@/assets/pokeview.svg'
-
-const router = useRouter()
+import fplEffect from '@/assets/fplEffect.svg'
 
 const projects = [
   {
     title: 'Enkelt piano',
-    description: 'Spill piano i nettlesern',
+    description: 'Spill piano i nettlesern med tastaturet eller musen',
     longDescription:
       'Et enkelt piano du kan spille direkte i nettleseren. Bruk tastaturet eller klikk på tangentene for å spille.',
     color: '#E2EDD6',
@@ -20,10 +18,14 @@ const projects = [
     githubUrl: 'https://github.com/shady356/simple-piano',
     websiteUrl: 'https://shady356.github.io/simple-piano/',
     to: undefined as string | undefined,
+    dialogTo: undefined as string | undefined,
+    primaryLabel: undefined as string | undefined,
+    badge: 'Spiller lyd',
+    badgeIcon: 'music' as 'book' | 'mobile' | 'music' | undefined,
   },
   {
     title: 'PokéView',
-    description: 'Utforsk Pokémon-verdenen',
+    description: 'Utforsk Pokémon i en interaktiv Pokédex-app',
     longDescription:
       'En Pokédex-app der du kan søke og utforske alle Pokémon med informasjon hentet fra PokéAPI.',
     color: '#F6FBFF',
@@ -32,18 +34,26 @@ const projects = [
     githubUrl: 'https://github.com/shady356/pokedex',
     websiteUrl: 'https://shady356.github.io/pokedex/',
     to: undefined as string | undefined,
+    dialogTo: undefined as string | undefined,
+    primaryLabel: undefined as string | undefined,
+    badge: 'Mobile app',
+    badgeIcon: 'mobile' as 'book' | 'mobile' | 'music' | undefined,
   },
   {
-    title: 'Fantasy Premier League Design',
+    title: 'FPL Design',
     description: 'Et UI/UX design case for Fantasy Premier League.',
     longDescription:
       'Et UI/UX design case der jeg redesignet Fantasy Premier League-appen for å forbedre brukeropplevelsen og gjøre det mer intuitivt.',
-    color: '#F3E5FF',
-    foreground: '#2B0A47',
-    image: pokeview,
+    color: '#fae9ff',
+    foreground: '#43245d',
+    image: fplEffect,
     githubUrl: '',
     websiteUrl: undefined,
-    to: '/fpl-case',
+    to: undefined as string | undefined,
+    dialogTo: '/fpl-case',
+    primaryLabel: 'Les dette Caset',
+    badge: 'Design Case',
+    badgeIcon: 'book' as 'book' | 'mobile' | 'music' | undefined,
   },
 ]
 
@@ -52,11 +62,7 @@ type Project = (typeof projects)[number]
 const selectedProject = ref<Project | null>(null)
 
 function handleSelect(project: Project) {
-  if (project.to) {
-    router.push(project.to)
-  } else {
-    selectedProject.value = project
-  }
+  selectedProject.value = project
 }
 </script>
 
@@ -85,6 +91,10 @@ function handleSelect(project: Project) {
     :color="selectedProject.color"
     :github-url="selectedProject.githubUrl"
     :website-url="selectedProject.websiteUrl || undefined"
+    :to="selectedProject.dialogTo"
+    :primary-label="selectedProject.primaryLabel"
+    :badge="selectedProject.badge"
+    :badge-icon="selectedProject.badgeIcon"
     @close="selectedProject = null"
   />
 </template>

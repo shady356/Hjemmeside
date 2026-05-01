@@ -1,7 +1,10 @@
 <script setup lang="ts">
+import { RouterLink } from 'vue-router'
+
 withDefaults(
   defineProps<{
     href?: string
+    to?: string
     variant?: 'primary' | 'outline'
   }>(),
   {
@@ -21,6 +24,9 @@ withDefaults(
   >
     <slot />
   </a>
+  <RouterLink v-else-if="to" :to="to" class="base-button" :class="variant">
+    <slot />
+  </RouterLink>
   <button v-else class="base-button" :class="variant">
     <slot />
   </button>
@@ -55,11 +61,9 @@ withDefaults(
 }
 .base-button.outline:hover {
   background-color: #ddd;
-  color: var(--secondary-text);
 }
 .base-button.outline:active {
   background-color: #eee;
-  color: #fff;
 }
 .base-button:focus-visible {
   outline: 2px solid var(--outline-color);

@@ -9,7 +9,7 @@ const colors: { name: string; hex: string; border?: string }[] = [
   { name: 'Grå 200', hex: '#F2F2F2', border: '#ddd' },
   { name: 'Grå 300', hex: '#E5E5E5' },
   { name: 'Grå 400', hex: '#CCCCCC' },
-  { name: 'Kamper', hex: '#0F49FC' },
+  { name: 'Kamper', hex: '#04F9FC' },
   { name: 'Kamper Lys', hex: '#7EFDFF' },
   { name: 'Spillere', hex: '#04F9A5' },
   { name: 'Spillere Lys', hex: '#81FFD4' },
