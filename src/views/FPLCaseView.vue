@@ -1,5 +1,8 @@
 <script setup>
+import { ref, watch } from 'vue'
 import FPLColorSwatches from '@/components/FPLColorSwatches.vue'
+import BaseButtonIcon from '@/components/BaseButtonIcon.vue'
+import ExitIcon from '@/components/icons/ExitIcon.vue'
 import messengerImg from '@/assets/fpl/messenger.png'
 import ruterImg from '@/assets/fpl/Ruter.png'
 import fplFrontpageImg from '@/assets/fpl/fpl frontpage.png'
@@ -12,6 +15,19 @@ import kamperImg from '@/assets/fpl/Kamper.png'
 import kamperFargeneImg from '@/assets/fpl/Kamper Hva betyr fargene.png'
 import kamperFiltrerImg from '@/assets/fpl/Kamper filtrer runder.png'
 import kamperSortertImg from '@/assets/fpl/Kamper sortert og filtrert.png'
+
+const lightboxSrc = ref(null)
+const lightboxRef = ref(null)
+
+watch(lightboxSrc, (src) => {
+  if (src) lightboxRef.value?.showModal()
+  else lightboxRef.value?.close()
+})
+
+function onImgClick(e) {
+  const img = e.target.closest('img')
+  if (img) lightboxSrc.value = img.src
+}
 </script>
 
 <template>
@@ -29,7 +45,7 @@ import kamperSortertImg from '@/assets/fpl/Kamper sortert og filtrert.png'
       </div>
     </div>
 
-    <div class="content-wrap">
+    <div class="content-wrap" @click="onImgClick">
       <RouterLink to="/" class="back-link">← Tilbake til fremsiden</RouterLink>
 
       <!-- 1. Problem -->
@@ -280,6 +296,18 @@ import kamperSortertImg from '@/assets/fpl/Kamper sortert og filtrert.png'
       <RouterLink to="/" class="back-link back-link--bottom">← Tilbake til fremsiden</RouterLink>
     </div>
   </main>
+
+  <dialog
+    ref="lightboxRef"
+    class="lightbox"
+    @close="lightboxSrc = null"
+    @click="lightboxSrc = null"
+  >
+    <BaseButtonIcon class="lightbox-close" @click.stop="lightboxSrc = null" aria-label="Lukk">
+      <ExitIcon />
+    </BaseButtonIcon>
+    <img :src="lightboxSrc" alt="" class="lightbox-img" @click.stop />
+  </dialog>
 </template>
 
 <style scoped>
@@ -380,6 +408,7 @@ import kamperSortertImg from '@/assets/fpl/Kamper sortert og filtrert.png'
 .case-section p {
   line-height: 1.75;
   color: #222;
+  font-size: 18px;
   margin: 0 0 1rem;
 }
 
@@ -394,7 +423,7 @@ blockquote p {
   font-style: italic;
   padding: 0 20px;
   color: #2b0a47;
-  border-left: 2px solid #3d195b;
+  border-left: 2px solid #8b60ad;
 }
 
 blockquote cite {
@@ -440,6 +469,7 @@ blockquote cite {
   border-radius: 24px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
   display: block;
+  cursor: zoom-in;
 }
 
 .screenshot-caption {
@@ -460,6 +490,7 @@ blockquote cite {
   border-radius: 24px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
   display: block;
+  cursor: zoom-in;
 }
 
 .screenshot-messenger {
@@ -476,6 +507,7 @@ blockquote cite {
   border-radius: 16px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   display: block;
+  cursor: zoom-in;
 }
 
 /* ─── Design tokens ─── */
@@ -551,5 +583,33 @@ blockquote cite {
   .screenshot-pair {
     gap: 12px;
   }
+}
+
+/* ─── Lightbox ─── */
+.lightbox {
+  border: none;
+  background: transparent;
+  max-width: 90vw;
+  max-height: 90vh;
+  padding: 0;
+}
+
+.lightbox::backdrop {
+  background: rgba(0, 0, 0, 0.85);
+  cursor: zoom-out;
+}
+
+.lightbox-close {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+}
+
+.lightbox-img {
+  display: block;
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 16px;
+  object-fit: contain;
 }
 </style>

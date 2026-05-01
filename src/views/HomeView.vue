@@ -43,16 +43,14 @@ const photo2Style = computed(() => ({ zIndex: topPhoto.value === 2 ? 2 : 1 }))
         </button>
       </section>
     </div>
+    <Projects />
   </main>
-  <Projects />
 </template>
 
 <style scoped>
 main {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 4rem 3rem;
+  flex-direction: column;
   width: 100%;
   max-width: 1024px;
   margin: 0 auto;
@@ -65,6 +63,8 @@ main {
   align-items: center;
   gap: 3rem;
   width: 100%;
+  padding: 4rem 3rem;
+  box-sizing: border-box;
 }
 
 @media (min-width: 768px) {

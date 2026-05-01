@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import ExitIcon from './icons/ExitIcon.vue'
+import ArrowRight from './icons/ArrowRight.vue'
 import BaseButton from './BaseButton.vue'
 import BaseBadge from './BaseBadge.vue'
+import BaseButtonIcon from './BaseButtonIcon.vue'
 import BookIcon from './icons/BookIcon.vue'
 import MobileIcon from './icons/MobileIcon.vue'
 import MusicIcon from './icons/MusicIcon.vue'
@@ -38,9 +40,9 @@ function close() {
 <template>
   <dialog ref="dialogRef" @close="emit('close')" @click="close">
     <div class="dialog-content" @click.stop>
-      <button class="close-button" @click="close" title="Lukk" aria-label="Lukk dialog">
+      <BaseButtonIcon class="close-button" @click="close" title="Lukk" aria-label="Lukk dialog">
         <ExitIcon />
-      </button>
+      </BaseButtonIcon>
       <div class="dialog-image-wrapper" :style="{ background: color }">
         <BaseBadge v-if="badge" class="dialog-badge">
           <template v-if="badgeIcon" #icon>
@@ -54,8 +56,8 @@ function close() {
       <p>{{ description }}</p>
       <div class="links">
         <BaseButton v-if="githubUrl" :href="githubUrl" variant="outline">Se på GitHub</BaseButton>
-        <BaseButton v-if="to" :to="to">{{ primaryLabel || 'Les mer' }}</BaseButton>
-        <BaseButton v-else-if="websiteUrl" :href="websiteUrl">{{ primaryLabel || 'Besøk nettside' }}</BaseButton>
+        <BaseButton v-if="to" :to="to" :icon="ArrowRight">{{ primaryLabel || 'Les mer' }}</BaseButton>
+        <BaseButton v-else-if="websiteUrl" :href="websiteUrl" :icon="ArrowRight">{{ primaryLabel || 'Besøk nettside' }}</BaseButton>
       </div>
     </div>
   </dialog>
@@ -89,12 +91,16 @@ dialog[open] {
 }
 
 @media screen and (max-width: 768px) {
+  dialog {
+    margin: auto auto 0;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 20px 20px 0 0;
+  }
   .dialog-content {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100vw;
-    height: 70vh;
+    width: 100%;
+    max-height: 70vh;
+    overflow-y: auto;
     border-radius: 20px 20px 0 0;
   }
 }
@@ -104,25 +110,6 @@ dialog[open] {
   top: 1rem;
   right: 1rem;
   z-index: 1;
-  background: rgba(255, 255, 255, 0.85);
-  border: none;
-  cursor: pointer;
-  color: var(--secondary-text);
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 0;
-}
-
-.close-button:hover {
-  background: rgba(255, 255, 255, 1);
-}
-
-.close-button:focus-visible {
-  outline-offset: var(--outline-offset);
 }
 
 .dialog-image-wrapper {

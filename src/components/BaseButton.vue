@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { type Component } from 'vue'
 import { RouterLink } from 'vue-router'
 
 withDefaults(
@@ -6,6 +7,7 @@ withDefaults(
     href?: string
     to?: string
     variant?: 'primary' | 'outline'
+    icon?: Component
   }>(),
   {
     variant: 'primary',
@@ -23,12 +25,15 @@ withDefaults(
     :class="variant"
   >
     <slot />
+    <component :is="icon" v-if="icon" class="base-button__icon" />
   </a>
   <RouterLink v-else-if="to" :to="to" class="base-button" :class="variant">
     <slot />
+    <component :is="icon" v-if="icon" class="base-button__icon" />
   </RouterLink>
   <button v-else class="base-button" :class="variant">
     <slot />
+    <component :is="icon" v-if="icon" class="base-button__icon" />
   </button>
 </template>
 
@@ -58,6 +63,7 @@ withDefaults(
 .base-button.outline {
   background-color: #eee;
   color: var(--secondary-text);
+  border: 1.5px solid #ccc;
 }
 .base-button.outline:hover {
   background-color: #ddd;
@@ -68,5 +74,10 @@ withDefaults(
 .base-button:focus-visible {
   outline: 2px solid var(--outline-color);
   outline-offset: var(--outline-offset);
+}
+.base-button__icon {
+  width: 1.25em;
+  height: 1.25em;
+  flex-shrink: 0;
 }
 </style>
