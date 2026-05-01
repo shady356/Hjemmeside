@@ -1,4 +1,5 @@
 <script setup>
+import FPLColorSwatches from '@/components/FPLColorSwatches.vue'
 import messengerImg from '@/assets/fpl/messenger.png'
 import ruterImg from '@/assets/fpl/Ruter.png'
 import fplFrontpageImg from '@/assets/fpl/fpl frontpage.png'
@@ -191,8 +192,8 @@ import kamperSortertImg from '@/assets/fpl/Kamper sortert og filtrert.png'
           </figure>
         </div>
         <p>
-          I eksempelet vises de 3 neste rundene og kampene er sortert på hvor lette de er. Med
-          denne oversikten kan det tyde på at bl.a. Arsenal og Crystal Palace er gode valg å hente
+          I eksempelet vises de 3 neste rundene og kampene er sortert på hvor lette de er. Med denne
+          oversikten kan det tyde på at bl.a. Arsenal og Crystal Palace er gode valg å hente
           spillere fra siden kampprogrammet deres er enkelt fremover. Hvis man skulle gjort dette
           uten filter og sortering ville det tatt sin tid ettersom man må scrolle opp og ned for å
           sammenligne hvem som har de letteste kampene fremover.
@@ -216,8 +217,8 @@ import kamperSortertImg from '@/assets/fpl/Kamper sortert og filtrert.png'
           ville være passende for at dataene ikke skal være for overveldende.
         </p>
         <p>
-          For typografien har jeg valgt å gå for <strong>Outfit</strong>, da denne fonten ikke er
-          så ulik Premier League sin egen font. Det skaper gjenkjennelse, og fonten har flotte
+          For typografien har jeg valgt å gå for <strong>Outfit</strong>, da denne fonten ikke er så
+          ulik Premier League sin egen font. Det skaper gjenkjennelse, og fonten har flotte
           geometriske former som ikke oppleves som hard. Det passer den myke stilen til fargene.
         </p>
         <p>
@@ -231,87 +232,7 @@ import kamperSortertImg from '@/assets/fpl/Kamper sortert og filtrert.png'
         </p>
 
         <h3>Farger</h3>
-        <div class="color-grid">
-          <div class="color-swatch">
-            <div class="swatch-dot" style="background: #26272c; border: 1px solid #ddd"></div>
-            <div><p class="swatch-name">Tekst Primær</p><p class="swatch-hex">#26272C</p></div>
-          </div>
-          <div class="color-swatch">
-            <div class="swatch-dot" style="background: #3f455e"></div>
-            <div><p class="swatch-name">Tekst Sekundær</p><p class="swatch-hex">#3F455E</p></div>
-          </div>
-          <div class="color-swatch">
-            <div class="swatch-dot" style="background: #cccccc"></div>
-            <div><p class="swatch-name">Border</p><p class="swatch-hex">#CCCCCC</p></div>
-          </div>
-          <div class="color-swatch">
-            <div class="swatch-dot" style="background: #3d195b"></div>
-            <div>
-              <p class="swatch-name">Premier League</p><p class="swatch-hex">#3D195B</p>
-            </div>
-          </div>
-          <div class="color-swatch">
-            <div
-              class="swatch-dot"
-              style="background: #f3e5ff; border: 1px solid #e0d5ec"
-            ></div>
-            <div>
-              <p class="swatch-name">Premier League Soft</p><p class="swatch-hex">#F3E5FF</p>
-            </div>
-          </div>
-          <div class="color-swatch">
-            <div class="swatch-dot" style="background: #ffffff; border: 1px solid #ddd"></div>
-            <div><p class="swatch-name">Grå 100</p><p class="swatch-hex">#FFFFFF</p></div>
-          </div>
-          <div class="color-swatch">
-            <div class="swatch-dot" style="background: #f2f2f2; border: 1px solid #ddd"></div>
-            <div><p class="swatch-name">Grå 200</p><p class="swatch-hex">#F2F2F2</p></div>
-          </div>
-          <div class="color-swatch">
-            <div class="swatch-dot" style="background: #e5e5e5"></div>
-            <div><p class="swatch-name">Grå 300</p><p class="swatch-hex">#E5E5E5</p></div>
-          </div>
-          <div class="color-swatch">
-            <div class="swatch-dot" style="background: #cccccc"></div>
-            <div><p class="swatch-name">Grå 400</p><p class="swatch-hex">#CCCCCC</p></div>
-          </div>
-          <div class="color-swatch">
-            <div class="swatch-dot" style="background: #0f49fc"></div>
-            <div><p class="swatch-name">Kamper</p><p class="swatch-hex">#0F49FC</p></div>
-          </div>
-          <div class="color-swatch">
-            <div class="swatch-dot" style="background: #7efdff"></div>
-            <div><p class="swatch-name">Kamper Lys</p><p class="swatch-hex">#7EFDFF</p></div>
-          </div>
-          <div class="color-swatch">
-            <div class="swatch-dot" style="background: #04f9a5"></div>
-            <div><p class="swatch-name">Spillere</p><p class="swatch-hex">#04F9A5</p></div>
-          </div>
-          <div class="color-swatch">
-            <div class="swatch-dot" style="background: #81ffd4"></div>
-            <div><p class="swatch-name">Spillere Lys</p><p class="swatch-hex">#81FFD4</p></div>
-          </div>
-          <div class="color-swatch">
-            <div class="swatch-dot" style="background: #375523"></div>
-            <div><p class="swatch-name">FDR 1</p><p class="swatch-hex">#375523</p></div>
-          </div>
-          <div class="color-swatch">
-            <div class="swatch-dot" style="background: #04f9a5"></div>
-            <div><p class="swatch-name">FDR 2</p><p class="swatch-hex">#04F9A5</p></div>
-          </div>
-          <div class="color-swatch">
-            <div class="swatch-dot" style="background: #cccccc"></div>
-            <div><p class="swatch-name">FDR 3</p><p class="swatch-hex">#CCCCCC</p></div>
-          </div>
-          <div class="color-swatch">
-            <div class="swatch-dot" style="background: #ee5b80"></div>
-            <div><p class="swatch-name">FDR 4</p><p class="swatch-hex">#EE5B80</p></div>
-          </div>
-          <div class="color-swatch">
-            <div class="swatch-dot" style="background: #80072d"></div>
-            <div><p class="swatch-name">FDR 5</p><p class="swatch-hex">#80072D</p></div>
-          </div>
-        </div>
+        <FPLColorSwatches />
 
         <h3>Spacing (px)</h3>
         <div class="spacing-demo">
@@ -335,10 +256,10 @@ import kamperSortertImg from '@/assets/fpl/Kamper sortert og filtrert.png'
         <h2>Refleksjoner og veien videre</h2>
         <p>
           Dette prosjektet startet med ett konkret, observert problem. Derfra vokste det naturlig
-          til å bli et mer komplett verktøy for FPL, basert på snakk og innsikt fra venner,
-          kolleger og Reddit. Veien videre for dette prosjektet vil være å brukerteste designet i
-          form av en prototype for å se om det løser problemer med deadline og hjelper managere til
-          å planlegge hvilke spillere de vil ha på laget sitt.
+          til å bli et mer komplett verktøy for FPL, basert på snakk og innsikt fra venner, kolleger
+          og Reddit. Veien videre for dette prosjektet vil være å brukerteste designet i form av en
+          prototype for å se om det løser problemer med deadline og hjelper managere til å planlegge
+          hvilke spillere de vil ha på laget sitt.
         </p>
         <p>
           Hvis jeg skal være kritisk, så er jeg usikker på om det var en god idé å oversette kjente
@@ -355,6 +276,8 @@ import kamperSortertImg from '@/assets/fpl/Kamper sortert og filtrert.png'
           system.
         </p>
       </section>
+
+      <RouterLink to="/" class="back-link back-link--bottom">← Tilbake til fremsiden</RouterLink>
     </div>
   </main>
 </template>
@@ -372,7 +295,7 @@ import kamperSortertImg from '@/assets/fpl/Kamper sortert og filtrert.png'
 }
 
 .hero-inner {
-  max-width: 760px;
+  max-width: 540px;
   margin: 0 auto;
 }
 
@@ -411,7 +334,7 @@ import kamperSortertImg from '@/assets/fpl/Kamper sortert og filtrert.png'
 
 /* ─── Content ─── */
 .content-wrap {
-  max-width: 760px;
+  max-width: 540px;
   margin: 0 auto;
   padding: 2.5rem 2rem 6rem;
   box-sizing: border-box;
@@ -430,6 +353,11 @@ import kamperSortertImg from '@/assets/fpl/Kamper sortert og filtrert.png'
   text-decoration: underline;
 }
 
+.back-link--bottom {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
 /* ─── Sections ─── */
 .case-section {
   margin-bottom: 4rem;
@@ -439,19 +367,19 @@ import kamperSortertImg from '@/assets/fpl/Kamper sortert og filtrert.png'
   font-size: 1.5rem;
   font-weight: 700;
   margin: 0 0 1rem;
-  color: #26272c;
+  color: #222;
 }
 
 .case-section h3 {
   font-size: 1rem;
   font-weight: 700;
   margin: 2rem 0 0.75rem;
-  color: #26272c;
+  color: #222;
 }
 
 .case-section p {
   line-height: 1.75;
-  color: #3f455e;
+  color: #222;
   margin: 0 0 1rem;
 }
 
@@ -459,31 +387,30 @@ import kamperSortertImg from '@/assets/fpl/Kamper sortert og filtrert.png'
 blockquote {
   margin: 1.5rem 0;
   padding: 1.25rem 1.5rem;
-  background: #f3e5ff;
-  border-left: 4px solid #3d195b;
   border-radius: 0 8px 8px 0;
 }
 
 blockquote p {
-  margin: 0 0 0.5rem;
   font-style: italic;
+  padding: 0 20px;
   color: #2b0a47;
+  border-left: 2px solid #3d195b;
 }
 
 blockquote cite {
+  padding: 0 20px;
   font-size: 0.85rem;
-  color: #6a3a8a;
+  color: #3d195b;
   font-style: normal;
 }
 
 /* ─── Nav path ─── */
 .breadcrumb-path {
-  background: #f2f2f2;
-  border: 1px solid #e5e5e5;
+  border: 1px dashed #e5e5e5;
   border-radius: 8px;
   padding: 1rem 1.25rem;
   font-size: 0.875rem;
-  color: #3f455e;
+  color: #333;
   margin: 1rem 0 1.5rem;
   text-align: center;
 }
@@ -552,40 +479,6 @@ blockquote cite {
 }
 
 /* ─── Design tokens ─── */
-.color-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 1rem;
-  margin-bottom: 0.5rem;
-}
-
-.color-swatch {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.swatch-dot {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  flex-shrink: 0;
-}
-
-.swatch-name {
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: #26272c;
-  margin: 0;
-}
-
-.swatch-hex {
-  font-size: 0.72rem;
-  color: #3f455e;
-  margin: 0;
-  font-family: monospace;
-}
-
 .spacing-demo {
   display: flex;
   align-items: flex-end;
@@ -638,8 +531,7 @@ blockquote cite {
 .radius-box {
   width: 56px;
   height: 56px;
-  background: #f3e5ff;
-  border: 2px solid #3d195b;
+  background: #3d195b;
 }
 
 /* ─── Mobile ─── */
@@ -650,10 +542,6 @@ blockquote cite {
 
   .content-wrap {
     padding: 2rem 1.25rem 5rem;
-  }
-
-  .color-grid {
-    grid-template-columns: repeat(2, 1fr);
   }
 
   .spacing-demo {
