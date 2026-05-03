@@ -18,10 +18,10 @@ defineEmits<{ select: [] }>()
     @click="$emit('select')"
   >
     <div class="card-image">
-      <img :src="image" :alt="title" />
+      <img :src="image" alt="" />
     </div>
     <div class="card-footer">
-      <p class="card-title">{{ title }}</p>
+      <h3 class="card-title">{{ title }}</h3>
       <p class="card-description">{{ description }}</p>
     </div>
   </button>

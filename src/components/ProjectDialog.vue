@@ -33,7 +33,17 @@ onMounted(() => {
 })
 
 function close() {
-  dialogRef.value?.close()
+  const dialog = dialogRef.value
+  if (!dialog) return
+  dialog.classList.add('is-closing')
+  dialog.addEventListener(
+    'animationend',
+    () => {
+      dialog.classList.remove('is-closing')
+      dialog.close()
+    },
+    { once: true },
+  )
 }
 </script>
 
@@ -50,14 +60,20 @@ function close() {
           </template>
           {{ badge }}
         </BaseBadge>
-        <img :src="image" :alt="title" class="dialog-image" />
+        <img :src="image" alt="" class="dialog-image" />
       </div>
       <h2>{{ title }}</h2>
       <p>{{ description }}</p>
       <div class="links">
-        <BaseButton v-if="githubUrl" :href="githubUrl" variant="outline">Se på GitHub</BaseButton>
-        <BaseButton v-if="to" :to="to" :icon="ArrowRight">{{ primaryLabel || 'Les mer' }}</BaseButton>
-        <BaseButton v-else-if="websiteUrl" :href="websiteUrl" :icon="ArrowRight">{{ primaryLabel || 'Besøk nettside' }}</BaseButton>
+        <BaseButton v-if="githubUrl" :href="githubUrl" :icon="ArrowRight" variant="outline"
+          >GitHub</BaseButton
+        >
+        <BaseButton v-if="to" :to="to" :icon="ArrowRight">{{
+          primaryLabel || 'Les mer'
+        }}</BaseButton>
+        <BaseButton v-else-if="websiteUrl" :href="websiteUrl" :icon="ArrowRight">{{
+          primaryLabel || 'Gå til nettside'
+        }}</BaseButton>
       </div>
     </div>
   </dialog>
@@ -72,10 +88,59 @@ dialog {
 
 dialog::backdrop {
   background: rgba(0, 0, 0, 0.5);
+  animation: backdrop-in 0.25s ease-out;
 }
 
 dialog[open] {
-  animation: dialog-enter 0.2s ease-out;
+  animation: dialog-in 0.25s ease-out;
+}
+
+dialog.is-closing {
+  animation: dialog-out 0.2s ease-in forwards;
+}
+
+dialog.is-closing::backdrop {
+  animation: backdrop-out 0.2s ease-in forwards;
+}
+
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes dialog-out {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.97);
+  }
+}
+
+@keyframes backdrop-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes backdrop-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 .dialog-content {
@@ -102,6 +167,34 @@ dialog[open] {
     max-height: 70vh;
     overflow-y: auto;
     border-radius: 20px 20px 0 0;
+  }
+  dialog[open] {
+    animation: dialog-slide-up 0.3s ease-out;
+  }
+  dialog.is-closing {
+    animation: dialog-slide-down 0.25s ease-in forwards;
+  }
+  .links {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+}
+
+@keyframes dialog-slide-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes dialog-slide-down {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
   }
 }
 
