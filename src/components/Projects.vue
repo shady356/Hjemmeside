@@ -52,7 +52,7 @@ const projects: Project[] = [
     title: 'FPL Design',
     description: 'Et UI/UX design case for Fantasy Premier League.',
     longDescription:
-      'Et UI/UX design case der jeg redesignet Fantasy Premier League-appen for å forbedre brukeropplevelsen og gjøre det mer intuitivt.',
+      'Et UI/UX design case der jeg ser på hvordan man kan forbedre Fantasy Premier League-appen for å gi en bedre brukeropplevelse.',
     color: '#fae9ff',
     foreground: '#43245d',
     image: fplEffect,
