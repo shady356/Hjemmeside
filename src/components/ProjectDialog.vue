@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import type { RouteLocationRaw } from 'vue-router'
-import type { BadgeIcon } from '@/types'
+import { ref, onMounted, type Component } from 'vue'
+import type { BadgeIcon, Project } from '@/types'
 import ExitIcon from './icons/ExitIcon.vue'
 import ArrowRight from './icons/ArrowRight.vue'
 import BaseButton from './BaseButton.vue'
@@ -11,20 +10,9 @@ import BookIcon from './icons/BookIcon.vue'
 import MobileIcon from './icons/MobileIcon.vue'
 import MusicIcon from './icons/MusicIcon.vue'
 
-const iconMap = { book: BookIcon, mobile: MobileIcon, music: MusicIcon }
+const iconMap: Record<BadgeIcon, Component> = { book: BookIcon, mobile: MobileIcon, music: MusicIcon }
 
-defineProps<{
-  title: string
-  description: string
-  image: string
-  color: string
-  githubUrl?: string
-  websiteUrl?: string
-  to?: RouteLocationRaw
-  primaryLabel?: string
-  badge?: string
-  badgeIcon?: BadgeIcon
-}>()
+defineProps<{ project: Project }>()
 
 const emit = defineEmits<{ close: [] }>()
 
@@ -55,26 +43,26 @@ function close() {
       <BaseButtonIcon class="close-button" @click="close" title="Lukk" aria-label="Lukk dialog">
         <ExitIcon />
       </BaseButtonIcon>
-      <div class="dialog-image-wrapper" :style="{ background: color }">
-        <BaseBadge v-if="badge" class="dialog-badge">
-          <template v-if="badgeIcon" #icon>
-            <component :is="iconMap[badgeIcon]" />
+      <div class="dialog-image-wrapper" :style="{ background: project.color }">
+        <BaseBadge v-if="project.badge" class="dialog-badge">
+          <template v-if="project.badgeIcon" #icon>
+            <component :is="iconMap[project.badgeIcon]" />
           </template>
-          {{ badge }}
+          {{ project.badge }}
         </BaseBadge>
-        <img :src="image" alt="" class="dialog-image" />
+        <img :src="project.image" alt="" class="dialog-image" />
       </div>
-      <h2>{{ title }}</h2>
-      <p>{{ description }}</p>
+      <h2>{{ project.title }}</h2>
+      <p>{{ project.longDescription }}</p>
       <div class="links">
-        <BaseButton v-if="githubUrl" :href="githubUrl" :icon="ArrowRight" variant="outline"
+        <BaseButton v-if="project.githubUrl" :href="project.githubUrl" :icon="ArrowRight" variant="outline"
           >GitHub</BaseButton
         >
-        <BaseButton v-if="to" :to="to" :icon="ArrowRight">{{
-          primaryLabel || 'Les mer'
+        <BaseButton v-if="project.dialogTo" :to="project.dialogTo" :icon="ArrowRight">{{
+          project.primaryLabel || 'Les mer'
         }}</BaseButton>
-        <BaseButton v-else-if="websiteUrl" :href="websiteUrl" :icon="ArrowRight">{{
-          primaryLabel || 'Gå til nettside'
+        <BaseButton v-else-if="project.websiteUrl" :href="project.websiteUrl" :icon="ArrowRight">{{
+          project.primaryLabel || 'Gå til nettside'
         }}</BaseButton>
       </div>
     </div>

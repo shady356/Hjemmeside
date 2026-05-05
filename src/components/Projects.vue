@@ -76,16 +76,7 @@ function handleSelect(project: Project) {
 
   <ProjectDialog
     v-if="selectedProject"
-    :title="selectedProject.title"
-    :description="selectedProject.longDescription"
-    :image="selectedProject.image"
-    :color="selectedProject.color"
-    :github-url="selectedProject.githubUrl"
-    :website-url="selectedProject.websiteUrl"
-    :to="selectedProject.dialogTo"
-    :primary-label="selectedProject.primaryLabel"
-    :badge="selectedProject.badge"
-    :badge-icon="selectedProject.badgeIcon"
+    :project="selectedProject"
     @close="selectedProject = null"
   />
 </template>
