@@ -35,13 +35,12 @@ function onImgClick(e: PointerEvent) {
     <!-- Hero -->
     <div class="hero">
       <div class="hero-inner">
-        <span class="hero-eyebrow">Design Case</span>
+        <span class="hero-eyebrow" lang="en">Design Case</span>
         <h1>Gjør FPL-hverdagen litt lettere</h1>
         <p class="hero-sub">
           Hvordan et klassisk FPL-problem ble til en design-idé som setter deadline øverst, gir
           relevant spillerstatistikk og gjør planlegging lettere.
         </p>
-        <p class="hero-author">Henrik Oddløkken</p>
       </div>
     </div>
 
@@ -52,16 +51,16 @@ function onImgClick(e: PointerEvent) {
       <section class="case-section">
         <h2>Jeg glemte deadline</h2>
         <p>
-          Fantasy Premier League (FPL) er et spill hvor 10 millioner managere verden rundt setter
-          opp virtuelle lag med ekte Premier League-spillere. Målet er å få mest mulig poeng basert
-          på hvordan spillerne presterer på banen i det virkelige liv. Hvis Haaland scorer et mål
-          får man 4 poeng for dette.
+          Fantasy Premier League (FPL) er et spill hvor 10 millioner
+          <i>managere</i> verden rundt setter opp virtuelle lag med ekte Premier League-spillere.
+          Målet er å få mest mulig poeng basert på hvordan spillerne presterer på banen i det
+          virkelige liv. Hvis Haaland scorer et mål får man 4 poeng for dette.
         </p>
         <p>
-          Men det er allikevel noen problemer som saboterer managere gang på gang.
+          Men det er allikevel noen problemer som saboterer <i>managere</i> gang på gang.
           <strong>Å rekke deadline.</strong>
         </p>
-        <blockquote>
+        <blockquote lang="en">
           <p>
             "I spent hours the entire week to decide which transfers to make, only to completly miss
             the early deadline. Peak FPL?"
@@ -81,7 +80,7 @@ function onImgClick(e: PointerEvent) {
           <img :src="messengerImg" alt="" loading="lazy" />
           <figcaption class="screenshot-caption">Skjermdumper fra messenger chat</figcaption>
         </figure>
-        <blockquote>
+        <blockquote lang="en">
           <p>
             "I don't get why people who have the app, don't have notifications turned on, it boggles
             my mind"
@@ -97,7 +96,7 @@ function onImgClick(e: PointerEvent) {
           Den offisielle FPL-appen har innstillinger for nettopp dette, og jeg så selv at i min app
           var de slått av. For å komme seg til denne innstillingen må man trykke seg gjennom:
         </p>
-        <div class="breadcrumb-path">
+        <div class="breadcrumb-path" lang="en">
           More → myPL Settings → Notifications → Fantasy Premier League →
           <strong>Deadline reminders</strong>
         </div>
@@ -108,7 +107,7 @@ function onImgClick(e: PointerEvent) {
         </p>
         <p>
           I den offisielle FPL-appen vises også deadline-datoen i appen, men blir overskygget av
-          hvor mange poeng du fikk denne runden (Game week).
+          hvor mange poeng du fikk denne runden (<span lang="en">Game week</span>).
         </p>
         <div class="screenshot-pair">
           <figure class="screenshot-frame">
@@ -133,9 +132,9 @@ function onImgClick(e: PointerEvent) {
         </p>
         <p>
           Det er brukt farger fra Premier League sin profil for å gjøre det mer velkjent for
-          managere. Den sterke lilla fargen for deadline-kortet gjør at den står ut i forhold til de
-          to andre kortene som er mer sekundære valg. Disse kortene, "Spillere" og "Kamper" er neste
-          delen av appen jeg vil snakke om.
+          <i>managere</i>. Den sterke lilla fargen for deadline-kortet gjør at den står ut i forhold
+          til de to andre kortene som er mer sekundære valg. Disse kortene, "Spillere" og "Kamper"
+          er neste delen av appen jeg vil snakke om.
         </p>
         <div class="screenshot-single">
           <img :src="hjemImg" alt="App-skjerm: Hjem" loading="lazy" />
@@ -150,10 +149,10 @@ function onImgClick(e: PointerEvent) {
           relevant <em>akkurat nå</em>.
         </p>
         <p>
-          I designet vises spillerne i enten kort eller tabell. Dette er for å gi managere valget
-          for hvordan de vil lese statistikken. Kortdesign gir en enkel og rask skanning ved å
-          scrolle gjennom de forskjellige statistikkene, mens tabell gir bedre oversikt til å
-          sammenligne spillere.
+          I designet vises spillerne i enten kort eller tabell. Dette er for å gi
+          <i>managere</i> valget for hvordan de vil lese statistikken. Kortdesign gir en enkel og
+          rask skanning ved å scrolle gjennom de forskjellige statistikkene, mens tabell gir bedre
+          oversikt til å sammenligne spillere.
         </p>
         <p>
           Form er riktig nok en statistikk som er vist i den offisielle appen og den er relevant.
@@ -188,11 +187,12 @@ function onImgClick(e: PointerEvent) {
       <section class="case-section">
         <h2>Se hvem som har lett vei fremover</h2>
         <p>
-          Kampvisningen er veldig inspirert av den offisielle FPL sin såkalte Fixture Difficulty
-          Rating (FDR). Det er en tabell som viser hvor vanskelige kamper hvert lag møter og er en
-          av de viktigste verktøyene for å planlegge fremover. Designet er gjenkjennelig for
-          managere siden det er brukt de samme fargene for å se vanskelighetsgrad på lagene. Enkelte
-          farger var ikke helt godkjent i tråd med WCAG Fargekontrast AA, så de har blitt justert.
+          Kampvisningen er veldig inspirert av den offisielle FPL sin såkalte
+          <span lang="en">Fixture Difficulty Rating (FDR)</span>. Det er en tabell som viser hvor
+          vanskelige kamper hvert lag møter og er en av de viktigste verktøyene for å planlegge
+          fremover. Designet er gjenkjennelig for <i>managere</i> siden det er brukt de samme
+          fargene for å se vanskelighetsgrad på lagene. Enkelte farger var ikke helt godkjent i tråd
+          med WCAG Fargekontrast AA, så de har blitt justert.
         </p>
         <p>
           Her har jeg valgt å legge til filter og sortering for å kunne se enkelte kamper i
@@ -250,7 +250,7 @@ function onImgClick(e: PointerEvent) {
         <h3>Farger</h3>
         <FPLColorSwatches />
 
-        <h3>Spacing (px)</h3>
+        <h3 lang="en">Spacing (px)</h3>
         <div class="spacing-demo">
           <div v-for="size in [4, 8, 12, 16, 20, 24, 32, 40, 48]" :key="size" class="spacing-item">
             <div class="spacing-box" :style="{ width: size + 'px', height: size + 'px' }"></div>
@@ -258,7 +258,7 @@ function onImgClick(e: PointerEvent) {
           </div>
         </div>
 
-        <h3>Border radius (px)</h3>
+        <h3 lang="en">Border radius (px)</h3>
         <div class="radius-demo">
           <div v-for="r in [4, 8, 16, 24, 40]" :key="r" class="radius-item">
             <div class="radius-box" :style="{ borderRadius: r + 'px' }"></div>
@@ -274,15 +274,15 @@ function onImgClick(e: PointerEvent) {
           Dette prosjektet startet med ett konkret, observert problem. Derfra vokste det naturlig
           til å bli et mer komplett verktøy for FPL, basert på snakk og innsikt fra venner, kolleger
           og Reddit. Veien videre for dette prosjektet vil være å brukerteste designet i form av en
-          prototype for å se om det løser problemer med deadline og hjelper managere til å planlegge
-          hvilke spillere de vil ha på laget sitt.
+          prototype for å se om det løser problemer med deadline og hjelper
+          <i>managere</i> til å planlegge hvilke spillere de vil ha på laget sitt.
         </p>
         <p>
           Hvis jeg skal være kritisk, så er jeg usikker på om det var en god idé å oversette kjente
-          terminologier til norsk. Ordet "Gameweek" er veldig mye brukt i FPL. I denne appen valgte
-          jeg å oversette det til "Runder", men det kunne likeså gjerne ha vært "Kamp-uke". Ordene
-          "runder" og "kamper" kan skape litt forvirring og må antakelig ses på nytt for at de ikke
-          blir brukt om hverandre.
+          terminologier til norsk. Ordet <i lang="en">Gameweek</i> er veldig mye brukt i FPL. I
+          denne appen valgte jeg å oversette det til "Runder", men det kunne likeså gjerne ha vært
+          "Kamp-uke". Ordene "runder" og "kamper" kan skape litt forvirring og må antakelig ses på
+          nytt for at de ikke blir brukt om hverandre.
         </p>
         <p>
           Istedenfor å designe en helt ny app, så kunne disse funksjonalitetene jeg har presentert
