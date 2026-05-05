@@ -46,7 +46,7 @@ function onImgClick(e: PointerEvent) {
     </div>
 
     <div class="content-wrap" @click="onImgClick">
-      <RouterLink to="/" class="back-link">← Tilbake til fremsiden</RouterLink>
+      <RouterLink :to="{ name: 'home' }" class="back-link">← Tilbake til fremsiden</RouterLink>
 
       <!-- 1. Problem -->
       <section class="case-section">
@@ -293,7 +293,7 @@ function onImgClick(e: PointerEvent) {
         </p>
       </section>
 
-      <RouterLink to="/" class="back-link back-link--bottom">← Tilbake til fremsiden</RouterLink>
+      <RouterLink :to="{ name: 'home' }" class="back-link back-link--bottom">← Tilbake til fremsiden</RouterLink>
     </div>
   </main>
 

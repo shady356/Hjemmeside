@@ -43,7 +43,7 @@ const projects: Project[] = [
     foreground: '#43245d',
     image: fplEffect,
     githubUrl: '',
-    dialogTo: '/fpl-case',
+    dialogTo: { name: 'fpl-case' },
     primaryLabel: 'Les dette Caset',
     badge: 'Design Case',
     badgeIcon: 'book',

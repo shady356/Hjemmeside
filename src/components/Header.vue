@@ -1,10 +1,10 @@
 <template>
   <header>
-    <RouterLink to="/" class="home-link-name">Henrik Oddløkken</RouterLink>
+    <RouterLink :to="{ name: 'home' }" class="home-link-name">Henrik Oddløkken</RouterLink>
     <nav>
       <ul>
-        <li><RouterLink to="/#projects">Prosjekter</RouterLink></li>
-        <li><RouterLink to="/#contact">Kontakt</RouterLink></li>
+        <li><RouterLink :to="{ name: 'home', hash: '#projects' }">Prosjekter</RouterLink></li>
+        <li><RouterLink :to="{ name: 'home', hash: '#contact' }">Kontakt</RouterLink></li>
       </ul>
     </nav>
   </header>

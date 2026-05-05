@@ -1,3 +1,5 @@
+import type { RouteLocationRaw } from 'vue-router'
+
 export type BadgeIcon = 'book' | 'mobile' | 'music'
 
 export interface Project {
@@ -9,7 +11,7 @@ export interface Project {
   image: string
   githubUrl: string
   websiteUrl?: string
-  dialogTo?: string
+  dialogTo?: RouteLocationRaw
   primaryLabel?: string
   badge?: string
   badgeIcon?: BadgeIcon

@@ -11,8 +11,8 @@ const router = createRouter({
     return { top: 0 }
   },
   routes: [
-    { path: '/', component: HomeView },
-    { path: '/fpl-case', component: FPLCaseView },
+    { path: '/', name: 'home', component: HomeView },
+    { path: '/fpl-case', name: 'fpl-case', component: FPLCaseView },
   ],
 })
 

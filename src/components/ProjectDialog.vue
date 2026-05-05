@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import type { RouteLocationRaw } from 'vue-router'
 import type { BadgeIcon } from '@/types'
 import ExitIcon from './icons/ExitIcon.vue'
 import ArrowRight from './icons/ArrowRight.vue'
@@ -19,7 +20,7 @@ defineProps<{
   color: string
   githubUrl?: string
   websiteUrl?: string
-  to?: string
+  to?: RouteLocationRaw
   primaryLabel?: string
   badge?: string
   badgeIcon?: BadgeIcon

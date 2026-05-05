@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { type Component } from 'vue'
-import { RouterLink } from 'vue-router'
+import { RouterLink, type RouteLocationRaw } from 'vue-router'
 
 withDefaults(
   defineProps<{
     href?: string
-    to?: string
+    to?: RouteLocationRaw
     variant?: 'primary' | 'outline'
     icon?: Component
   }>(),
